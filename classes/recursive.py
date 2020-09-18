@@ -5,7 +5,8 @@ class Recursive(Strategy):
         self.rod_size = rod_size
         self.sizes = sizes
         self.prices = prices
-    
+        self.calls = [0] * (rod_size + 1)
+
     def solve(self, rod_size = None, sizes = None, prices = None):
         if rod_size is None:
             rod_size = self.rod_size
@@ -13,7 +14,9 @@ class Recursive(Strategy):
             sizes = self.sizes
         if prices is None:
             prices = self.prices
-
+        
+        self.calls[rod_size] += 1
+        
         solution = (0, [])
 
         if (rod_size < 0) or (rod_size < sizes[0]):

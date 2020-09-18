@@ -6,6 +6,7 @@ class Dynamic(Strategy):
         self.sizes = sizes
         self.prices = prices
         self.solutions = {}
+        self.calls = [0] * (rod_size + 1)
     
     def solve(self, rod_size = None, sizes = None, prices = None):
         if rod_size is None:
@@ -16,6 +17,8 @@ class Dynamic(Strategy):
             prices = self.prices
 
         solution = (0, [])
+
+        self.calls[rod_size] += 1
 
         if (rod_size < 0) or (rod_size < sizes[0]):
             return solution
