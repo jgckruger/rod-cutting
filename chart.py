@@ -19,8 +19,10 @@ for i in x:
     dyn_calls.append(sum(dyn.calls))
 
 import matplotlib.pyplot as plt
+import numpy as np
 plt.plot(x, rec_calls)
 plt.plot(x, dyn_calls)
+plt.xticks(np.arange(2,20, step=1))
 plt.ylabel('log(Number of calls)')
 plt.xlabel('N')
 plt.yscale('log')
